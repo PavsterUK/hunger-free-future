@@ -10,7 +10,6 @@ import static org.junit.Assert.assertEquals;
 
 class APITest {
 
-
     @Test
     void readJsonFromUrlToString() throws MalformedURLException {
         String json = API.readJsonFromUrlToString(new URL("https://jsonplaceholder.typicode.com/users"));
