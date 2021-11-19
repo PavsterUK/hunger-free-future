@@ -1,23 +1,31 @@
 package co.uk.hungerfree.backend.service;
 
-import co.uk.hungerfree.backend.jsonparsing.pojos.FoodBankPOJO;
+import co.uk.hungerfree.backend.domain.FoodBank;
+import co.uk.hungerfree.backend.domain.Need;
 import co.uk.hungerfree.backend.repository.FoodBankRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class FoodBankService {
 
-    FoodBankRepository foodBankRepo;
+    private static FoodBankRepository foodBankRepo;
+
+    public FoodBankService() {
+    }
 
     @Autowired
     public FoodBankService(FoodBankRepository foodBankRepo) {
-        this.foodBankRepo = foodBankRepo;
+        FoodBankService.foodBankRepo = foodBankRepo;
     }
 
-    public FoodBankPOJO save(FoodBankPOJO foodBank) {
-        return foodBankRepo.save(foodBank);
+
+    public static void saveAll(List<FoodBank> foodBankList) {
+        foodBankRepo.saveAll(foodBankList);
     }
+
 
 
 }

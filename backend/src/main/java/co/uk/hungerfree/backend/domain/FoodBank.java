@@ -1,13 +1,16 @@
-package co.uk.hungerfree.backend.jsonparsing.pojos;
+package co.uk.hungerfree.backend.domain;
 
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class FoodBankPOJO {
+public class FoodBank implements Serializable {
 
-    @OneToOne
-    private UrlsPOJO urls;
+
+    @OneToOne(cascade = {CascadeType.ALL})
+    @JoinColumn(name = "homepage")
+    private Urls urls;
 
     private String name;
 
@@ -28,15 +31,19 @@ public class FoodBankPOJO {
 
     private String postcode;
 
+//    @OneToOne(cascade = {CascadeType.ALL})
+//    @JoinColumn(name = "needs")
+//    private Need needs;
 
-    public FoodBankPOJO() {
+
+    public FoodBank() {
     }
 
-    public UrlsPOJO getUrls() {
+    public Urls getUrls() {
         return urls;
     }
 
-    public void setUrls(UrlsPOJO urls) {
+    public void setUrls(Urls urls) {
         this.urls = urls;
     }
 
@@ -111,5 +118,6 @@ public class FoodBankPOJO {
     public void setPostcode(String postcode) {
         this.postcode = postcode;
     }
+
 }
 
