@@ -1,4 +1,4 @@
-package co.uk.hungerfree.backend.domain;
+package co.uk.hungerfree.backend.model;
 
 import org.hibernate.annotations.Type;
 
@@ -18,7 +18,7 @@ public class Need implements Serializable {
 
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "slug")
-    private NeedsFoodBank foodbank;
+    private NeedFoodBank foodbank;
 
     public Need() {
     }
@@ -31,11 +31,11 @@ public class Need implements Serializable {
         this.needs = needs;
     }
 
-    public NeedsFoodBank getFoodbank() {
+    public NeedFoodBank getFoodbank() {
         return foodbank;
     }
 
-    public void setFoodbank(NeedsFoodBank foodbank) {
+    public void setFoodbank(NeedFoodBank foodbank) {
         this.foodbank = foodbank;
     }
 
@@ -54,4 +54,5 @@ public class Need implements Serializable {
     public void setFound(String found) {
         this.found = found;
     }
+
 }

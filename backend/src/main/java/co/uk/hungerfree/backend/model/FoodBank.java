@@ -1,4 +1,4 @@
-package co.uk.hungerfree.backend.domain;
+package co.uk.hungerfree.backend.model;
 
 
 import javax.persistence.*;
@@ -7,10 +7,9 @@ import java.io.Serializable;
 @Entity
 public class FoodBank implements Serializable {
 
-
     @OneToOne(cascade = {CascadeType.ALL})
     @JoinColumn(name = "homepage")
-    private Urls urls;
+    private FoodBankUrls urls;
 
     private String name;
 
@@ -31,19 +30,21 @@ public class FoodBank implements Serializable {
 
     private String postcode;
 
-//    @OneToOne(cascade = {CascadeType.ALL})
-//    @JoinColumn(name = "needs")
-//    private Need needs;
+    @Transient
+    Need needs;
 
+    public Need getNeeds() {
+        return needs;
+    }
 
     public FoodBank() {
     }
 
-    public Urls getUrls() {
+    public FoodBankUrls getUrls() {
         return urls;
     }
 
-    public void setUrls(Urls urls) {
+    public void setUrls(FoodBankUrls urls) {
         this.urls = urls;
     }
 

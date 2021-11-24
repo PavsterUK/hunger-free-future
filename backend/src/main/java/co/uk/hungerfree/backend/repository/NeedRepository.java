@@ -1,7 +1,9 @@
 package co.uk.hungerfree.backend.repository;
 
-import co.uk.hungerfree.backend.domain.Need;
-import org.springframework.data.repository.CrudRepository;
+import co.uk.hungerfree.backend.model.Need;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface NeedRepository extends CrudRepository<Need, Long> {
+@Repository
+public interface NeedRepository extends JpaRepository<Need, String> {
 }

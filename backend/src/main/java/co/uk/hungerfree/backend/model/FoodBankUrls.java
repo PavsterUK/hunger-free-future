@@ -1,15 +1,15 @@
-package co.uk.hungerfree.backend.domain;
+package co.uk.hungerfree.backend.model;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-public class Urls implements Serializable {
+public class FoodBankUrls implements Serializable {
 
     @Id
     private String homepage;
 
-    public Urls() {
+    public FoodBankUrls() {
     }
 
     public String getHomepage() {
