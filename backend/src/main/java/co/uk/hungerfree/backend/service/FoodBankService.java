@@ -1,9 +1,9 @@
 package co.uk.hungerfree.backend.service;
 
-import co.uk.hungerfree.backend.domain.FoodBank;
-import co.uk.hungerfree.backend.domain.Need;
+import co.uk.hungerfree.backend.model.FoodBank;
 import co.uk.hungerfree.backend.repository.FoodBankRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,20 +11,40 @@ import java.util.List;
 @Service
 public class FoodBankService {
 
-    private static FoodBankRepository foodBankRepo;
+    private FoodBankRepository foodBankRepo;
 
     public FoodBankService() {
     }
 
     @Autowired
     public FoodBankService(FoodBankRepository foodBankRepo) {
-        FoodBankService.foodBankRepo = foodBankRepo;
+        this.foodBankRepo = foodBankRepo;
     }
 
-
-    public static void saveAll(List<FoodBank> foodBankList) {
+    public void saveAll(List<FoodBank> foodBankList) {
         foodBankRepo.saveAll(foodBankList);
     }
+
+    @Query("SELECT " +
+            "name," +
+            "country," +
+            "email," +
+            "phone," +
+            "lat_lng" +
+            "closed" +
+            "address" +
+            "slug" +
+            "postcode" +
+            "needs" +
+            " FROM FOOD_BANK " +
+            "INNER JOIN NEED" +
+            "ON FOOD_BANK.slug = NEED.slug" )
+    public List<FoodBank> getFoodBankListByIds(List<String> ids) {
+        return foodBankRepo.findAllById(ids);
+    }
+
+
+
 
 
 

@@ -1,17 +1,17 @@
-package co.uk.hungerfree.backend.domain;
+package co.uk.hungerfree.backend.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class NeedsFoodBank {
+public class NeedFoodBank {
 
     private String name;
 
     @Id
     private String slug;
 
-    public NeedsFoodBank() {
+    public NeedFoodBank() {
     }
 
     public String getName() {

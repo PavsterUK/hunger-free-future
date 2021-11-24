@@ -40,7 +40,7 @@ public class Json {
         return objectWriter.writeValueAsString(node);
     }
 
-    public static <T> List<T> stringToJsonList(String jsonList, Class<T> klass) throws JsonProcessingException {
+    public static <T> List<T> stringToObjList(String jsonList, Class<T> klass) throws JsonProcessingException {
         CollectionType javaType = objectMapper.getTypeFactory()
                 .constructCollectionType(List.class, klass);
         return objectMapper.readValue(jsonList, javaType);
