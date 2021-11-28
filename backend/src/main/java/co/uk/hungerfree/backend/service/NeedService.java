@@ -1,29 +1,19 @@
 package co.uk.hungerfree.backend.service;
 
-import co.uk.hungerfree.backend.model.Need;
-import co.uk.hungerfree.backend.repository.NeedRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import co.uk.hungerfree.backend.model.entities.needEntity.Need;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class NeedService {
+public interface NeedService {
 
-    private NeedRepository needRepository;
+    public String listAll() throws JsonProcessingException;
 
-    @Autowired
-    public NeedService(NeedRepository needRepository) {
-        this.needRepository = needRepository;
-    }
+    public void saveAll(List<Need> needList);
 
-    public NeedService() {
-
-    }
-
-    public void saveAll(List<Need> needList) {
-        needRepository.saveAll(needList);
-    }
+    public List<Need> getFoodBanksByIds(List<String> ids);
 }
 
 

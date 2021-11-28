@@ -1,4 +1,4 @@
-package co.uk.hungerfree.backend.model;
+package co.uk.hungerfree.backend.model.entities.foodBankEntity;
 
 
 import javax.persistence.*;
@@ -29,13 +29,6 @@ public class FoodBank implements Serializable {
     private String slug;
 
     private String postcode;
-
-    @Transient
-    Need needs;
-
-    public Need getNeeds() {
-        return needs;
-    }
 
     public FoodBank() {
     }

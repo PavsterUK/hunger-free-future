@@ -1,51 +1,17 @@
 package co.uk.hungerfree.backend.service;
 
-import co.uk.hungerfree.backend.model.FoodBank;
-import co.uk.hungerfree.backend.repository.FoodBankRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Service;
+import co.uk.hungerfree.backend.model.entities.foodBankEntity.FoodBank;
+import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;
 
-@Service
-public class FoodBankService {
+public interface FoodBankService {
 
-    private FoodBankRepository foodBankRepo;
+    public String listAll() throws JsonProcessingException;
 
-    public FoodBankService() {
-    }
+    public void saveAll(List<FoodBank> foodBankList);
 
-    @Autowired
-    public FoodBankService(FoodBankRepository foodBankRepo) {
-        this.foodBankRepo = foodBankRepo;
-    }
-
-    public void saveAll(List<FoodBank> foodBankList) {
-        foodBankRepo.saveAll(foodBankList);
-    }
-
-    @Query("SELECT " +
-            "name," +
-            "country," +
-            "email," +
-            "phone," +
-            "lat_lng" +
-            "closed" +
-            "address" +
-            "slug" +
-            "postcode" +
-            "needs" +
-            " FROM FOOD_BANK " +
-            "INNER JOIN NEED" +
-            "ON FOOD_BANK.slug = NEED.slug" )
-    public List<FoodBank> getFoodBankListByIds(List<String> ids) {
-        return foodBankRepo.findAllById(ids);
-    }
-
-
-
-
+    public List<FoodBank> getFoodBanksByIds(List<String> ids);
 
 
 }
