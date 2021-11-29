@@ -1,4 +1,4 @@
-package co.uk.hungerfree.backend.model.entities.needEntity;
+package co.uk.hungerfree.backend.model.entity.needEntity;
 
 import org.hibernate.annotations.Type;
 

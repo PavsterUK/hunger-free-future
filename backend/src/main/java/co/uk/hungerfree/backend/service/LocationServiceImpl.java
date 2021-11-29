@@ -1,7 +1,7 @@
 package co.uk.hungerfree.backend.service;
 
 import co.uk.hungerfree.backend.jsonparsing.Json;
-import co.uk.hungerfree.backend.model.entities.locationEntity.Location;
+import co.uk.hungerfree.backend.model.entity.locationEntity.Location;
 import co.uk.hungerfree.backend.repository.LocationRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;

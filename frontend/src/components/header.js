@@ -1,11 +1,23 @@
-import logo from '../img/Foodbank-Logo.jpg'
+import logo1 from '../img/imageedit_3_3114255606.webp'
+import pic1 from '../img/header-pic-1.jpeg'
+import pic2 from '../img/header-pic-2.jpeg'
+import pic3 from '../img/header-pic-3.jpeg'
+import pic4 from '../img/header-pic-4.jpeg'
+import pic5 from '../img/hunger-free-future-logo@2x-150x150.webp'
+import pic6 from '../img/donations.jpg'
+import '../index.css';
+
 
 const Header = () => {
     return (
-        <header className='tc pv4 pv5-ns'>
-            <img src={logo} className='br-100 pa1 ba b--black-10 h3 w3' alt='avatar' />
-            <h1 className='f5 f4-ns fw6 mid-gray'>Jasper Whitehouse</h1>
-            <h2 className='f6 gray fw2 ttu tracked'>Los Angeles</h2>
+        <header className='header'>
+            <img src={logo1} alt='pic-one' />
+            <img src={pic1} alt='pic-two' />
+            <img src={pic2} alt='pic-three' />
+            <img src={pic3} alt='pic-four' />
+            <img src={pic4} alt='pic-five' />
+            <img src={pic5} alt='pic-five' />
+            <img src={pic6} alt='pic-five' />
         </header>
     )
 }

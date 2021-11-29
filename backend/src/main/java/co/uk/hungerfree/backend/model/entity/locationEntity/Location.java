@@ -1,4 +1,4 @@
-package co.uk.hungerfree.backend.model.entities.locationEntity;
+package co.uk.hungerfree.backend.model.entity.locationEntity;
 
 
 import javax.persistence.*;

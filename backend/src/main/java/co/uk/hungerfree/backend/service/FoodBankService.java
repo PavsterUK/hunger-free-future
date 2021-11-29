@@ -1,6 +1,6 @@
 package co.uk.hungerfree.backend.service;
 
-import co.uk.hungerfree.backend.model.entities.foodBankEntity.FoodBank;
+import co.uk.hungerfree.backend.model.entity.foodBankEntity.FoodBank;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import java.util.List;

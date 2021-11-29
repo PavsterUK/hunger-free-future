@@ -1,6 +1,6 @@
 package co.uk.hungerfree.backend.repository;
 
-import co.uk.hungerfree.backend.model.entities.needEntity.Need;
+import co.uk.hungerfree.backend.model.entity.needEntity.Need;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
