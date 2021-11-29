@@ -2,9 +2,9 @@ package co.uk.hungerfree.backend.service;
 
 import co.uk.hungerfree.backend.jsonparsing.API;
 import co.uk.hungerfree.backend.jsonparsing.Json;
-import co.uk.hungerfree.backend.model.entities.foodBankEntity.FoodBank;
-import co.uk.hungerfree.backend.model.entities.locationEntity.Location;
-import co.uk.hungerfree.backend.model.entities.needEntity.Need;
+import co.uk.hungerfree.backend.model.entity.foodBankEntity.FoodBank;
+import co.uk.hungerfree.backend.model.entity.locationEntity.Location;
+import co.uk.hungerfree.backend.model.entity.needEntity.Need;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;

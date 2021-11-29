@@ -1,6 +1,6 @@
 package co.uk.hungerfree.backend.service;
 
-import co.uk.hungerfree.backend.model.entities.needEntity.Need;
+import co.uk.hungerfree.backend.model.entity.needEntity.Need;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.stereotype.Service;
 

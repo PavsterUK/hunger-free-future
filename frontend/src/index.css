@@ -1,0 +1,10 @@
+.header {
+    display: block;
+    height: 20vh;
+    border: 1px solid red;
+}
+
+.header img {
+    height: 20vh;
+    width: 15vw;
+}

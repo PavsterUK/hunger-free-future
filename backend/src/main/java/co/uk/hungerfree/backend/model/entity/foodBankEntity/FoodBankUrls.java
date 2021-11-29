@@ -1,4 +1,4 @@
-package co.uk.hungerfree.backend.model.entities.foodBankEntity;
+package co.uk.hungerfree.backend.model.entity.foodBankEntity;
 
 import javax.persistence.*;
 import java.io.Serializable;
