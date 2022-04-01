@@ -1,4 +1,4 @@
-package co.uk.hungerfree.backend.jsonparsing;
+package co.uk.hungerfree.backend.csvparsing;
 
 import co.uk.hungerfree.backend.model.UkAddress;
 import com.opencsv.CSVReader;

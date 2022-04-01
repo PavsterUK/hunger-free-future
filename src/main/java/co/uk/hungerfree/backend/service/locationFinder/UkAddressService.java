@@ -1,4 +1,4 @@
-package co.uk.hungerfree.backend.service;
+package co.uk.hungerfree.backend.service.locationFinder;
 
 import co.uk.hungerfree.backend.model.UkAddress;
 import org.springframework.stereotype.Service;
