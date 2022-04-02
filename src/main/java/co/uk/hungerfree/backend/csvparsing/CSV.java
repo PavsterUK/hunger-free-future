@@ -1,6 +1,6 @@
 package co.uk.hungerfree.backend.csvparsing;
 
-import co.uk.hungerfree.backend.model.UkAddress;
+import co.uk.hungerfree.backend.model.TownFinder;
 import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import java.io.IOException;
@@ -12,9 +12,9 @@ import java.util.stream.Collectors;
 
 public class CSV {
 
-    public static List<UkAddress> parse(){
+    public static List<TownFinder> parse(){
 
-        List<UkAddress> ukAddressList = new ArrayList<>();
+        List<TownFinder> townFinderList = new ArrayList<>();
 
         try{
             URL resource = CSV.class.getClassLoader().getResource("static/csv/UKPlaces.csv");
@@ -23,20 +23,20 @@ public class CSV {
                     new CSVReaderBuilder(new InputStreamReader(resource.openStream())).
                             withSkipLines(1). // Skip  header
                             build();
-            ukAddressList = reader.readAll().stream().map(data-> {
-                UkAddress ukAddress = new UkAddress();
-                ukAddress.setId(Long.valueOf(data[0]));
-                ukAddress.setName(data[1]);
-                ukAddress.setCounty(data[2]);
-                ukAddress.setCountry(data[3]);
-                ukAddress.setLatitude(Double.parseDouble(data[7]));
-                ukAddress.setLongitude(Double.parseDouble(data[8]));
-                ukAddress.setPostcode_area(data[9]);
-                return ukAddress;
+            townFinderList = reader.readAll().stream().map(data-> {
+                TownFinder townFinder = new TownFinder();
+                townFinder.setId(Long.valueOf(data[0]));
+                townFinder.setName(data[1]);
+                townFinder.setCounty(data[2]);
+                townFinder.setCountry(data[3]);
+                townFinder.setLatitude(Double.parseDouble(data[7]));
+                townFinder.setLongitude(Double.parseDouble(data[8]));
+                townFinder.setPostcode_area(data[9]);
+                return townFinder;
             }).collect(Collectors.toList());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return ukAddressList;
+        return townFinderList;
     }
 }

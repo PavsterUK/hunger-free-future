@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 
 @Entity
-public class UkAddress {
+public class TownFinder {
 
     @Id
     private Long id;
@@ -22,7 +22,7 @@ public class UkAddress {
 
     private String postcode_area;
 
-    public UkAddress() {
+    public TownFinder() {
     }
 
     public Long getId() {
