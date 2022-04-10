@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class API {
 
-    public static String readJsonFromUrlToString (URL url) {
+    public static String fetch(URL url) {
         StringBuilder jsonSrt = new StringBuilder();
 
         try {

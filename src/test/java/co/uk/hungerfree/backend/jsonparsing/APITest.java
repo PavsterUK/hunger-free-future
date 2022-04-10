@@ -12,7 +12,7 @@ class APITest {
 
     @Test
     void readJsonFromUrlToString() throws MalformedURLException {
-        String json = API.readJsonFromUrlToString(new URL("https://jsonplaceholder.typicode.com/users"));
+        String json = API.fetch(new URL("https://jsonplaceholder.typicode.com/users"));
         Assertions.assertEquals(removeWhiteSpaces(json), removeWhiteSpaces(TestJsonString.getJsonString()));
     }
 

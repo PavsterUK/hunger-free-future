@@ -47,19 +47,19 @@ public class DataLoader implements ApplicationRunner {
 
         List<TownFinder> townFinderList = CSV.parse();
 
-        String foodBanksString = API.readJsonFromUrlToString(
+        String foodBanksString = API.fetch(
                 new URL("https://www.givefood.org.uk/api/2/foodbanks/"));
 
-        String needsString =  API.readJsonFromUrlToString(
+        String needsString =  API.fetch(
                 new URL("https://www.givefood.org.uk/api/2/needs/"));
 
-        String locationsString =  API.readJsonFromUrlToString(
+        String locationsString =  API.fetch(
                 new URL("https://www.givefood.org.uk/api/2/locations/"));
 
 
-        needServiceImpl.saveAll(Json.stringToObjList(needsString, Need.class));
-        foodBankServiceImpl.saveAll(Json.stringToObjList(foodBanksString, FoodBank.class));
-        locationServiceImpl.saveAll(Json.stringToObjList(locationsString, Location.class));
+        needServiceImpl.saveAll(Json.mapToObj(needsString, Need.class));
+        foodBankServiceImpl.saveAll(Json.mapToObj(foodBanksString, FoodBank.class));
+        locationServiceImpl.saveAll(Json.mapToObj(locationsString, Location.class));
         ukAddressServiceImpl.saveAll(townFinderList);
 
     }
