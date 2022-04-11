@@ -42,7 +42,7 @@ public class DataLoader implements ApplicationRunner {
 //        fromApiToDatabase();
     }
 
-    //Load initial data to database
+    //Load data to database
     public void fromApiToDatabase() throws JsonProcessingException, MalformedURLException {
 
         List<TownFinder> townFinderList = CSV.parse();
