@@ -8,9 +8,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/v1/api")
+@RequestMapping("https://hunger-free-future.herokuapp.com/v1/api")
 public class NeedController {
 
     NeedServiceImpl needServiceImpl;
