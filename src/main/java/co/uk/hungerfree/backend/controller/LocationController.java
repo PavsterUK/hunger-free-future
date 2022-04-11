@@ -13,7 +13,7 @@ import java.util.Map;
 
 //@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("https://hunger-free-future.herokuapp.com/v1/api")
+@RequestMapping("/v1/api")
 public class LocationController {
 
     LocationService locationService;
