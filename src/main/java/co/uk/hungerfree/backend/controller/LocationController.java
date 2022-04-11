@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(origins = "http://localhost:3000")
+//@CrossOrigin(origins = "http://localhost:3000")
 @RestController
-@RequestMapping("/v1/api")
+@RequestMapping("https://hunger-free-future.herokuapp.com/v1/api")
 public class LocationController {
 
     LocationService locationService;
