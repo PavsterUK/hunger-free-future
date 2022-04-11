@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "https://625483720ca58d0009eeb1c9--fantastic-strudel-956d59.netlify.app")
 @RestController
 @RequestMapping("/v1/api")
 public class NeedController {
