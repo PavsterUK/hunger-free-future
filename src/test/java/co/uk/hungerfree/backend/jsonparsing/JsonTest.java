@@ -56,7 +56,7 @@ class JsonTest {
         testList.add(new SimpleTestCasePOJO("PeterPan", "StoryCharacter"));
         testList.add(new SimpleTestCasePOJO("PeppaPig", "CartoonCharacter"));
 
-        List<SimpleTestCasePOJO> listFromString = Json.stringToObjList(simpleJsonTestCaseList, SimpleTestCasePOJO.class);
+        List<SimpleTestCasePOJO> listFromString = Json.mapToObj(simpleJsonTestCaseList, SimpleTestCasePOJO.class);
 
         //Lists match
         Assertions.assertTrue(compSimpleTestCasePOJOLists(testList, listFromString));

@@ -1,13 +1,17 @@
 package co.uk.hungerfree.backend.controller;
 
-import co.uk.hungerfree.backend.service.FoodBankServiceImpl;
+import co.uk.hungerfree.backend.model.foodbank.entity.FoodBank;
+import co.uk.hungerfree.backend.service.foodbank.FoodBankServiceImpl;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+
+import java.util.List;
+import java.util.Map;
+
+
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/v1/api")
 public class FoodBankController {
@@ -19,9 +23,19 @@ public class FoodBankController {
         this.fbServImpl = fbServImpl;
     }
 
-    @CrossOrigin(origins = "http://localhost:3000")
-    @GetMapping("/food_bank_list")
-    public String getAllFoodBanks() throws JsonProcessingException {
-        return  fbServImpl.listAll();
+
+    @GetMapping("/foodbanks")
+    public List<FoodBank> all() throws JsonProcessingException {
+        return fbServImpl.findAll();
+    }
+
+    @GetMapping("/foodbanks-with-needs")
+    public List<Map<String, String>> cal() throws JsonProcessingException {
+        return fbServImpl.allFbInclNeeds();
+    }
+
+    @GetMapping("/foodbanks/{slug}")
+    public FoodBank getBySlug(@PathVariable String slug) {
+        return fbServImpl.findById(slug);
     }
 }
