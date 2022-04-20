@@ -20,7 +20,6 @@ public class TownFinderController {
 
     @GetMapping("/find-town/{name}")
     public List<Map<String, String>> findByNameContains(@PathVariable(value = "name") String name) {
-        System.out.println(name);
         return townFinderServiceImpl.findByNameContains(name);
     }
 }

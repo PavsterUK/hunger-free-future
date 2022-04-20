@@ -1,6 +1,6 @@
 package co.uk.hungerfree.backend.service.location;
 
-import co.uk.hungerfree.backend.model.location.entity.Location;
+import co.uk.hungerfree.backend.model.location.Location;
 import co.uk.hungerfree.backend.repository.LocationRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,20 +19,12 @@ public class LocationServiceImpl implements LocationService {
         this.locationRepository = locationRepository;
     }
 
-    @Override
-    public List<Location> findAll() throws JsonProcessingException {
-        return locationRepository.findAll();
-    }
 
     @Override
     public void saveAll(List<Location> locationList) {
         locationRepository.saveAll(locationList);
     }
 
-    @Override
-    public List<Location> getLocationsByIds(List<String> ids) {
-        return locationRepository.findAllById(ids);
-    }
 
     @Override
     public List<Map<String, String>> findAllSalvationArmyWithNeeds() {
