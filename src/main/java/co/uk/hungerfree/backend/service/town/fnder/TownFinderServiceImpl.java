@@ -26,6 +26,6 @@ public class TownFinderServiceImpl implements TownFinderService {
     @Override
     public List<Map<String, String>> findByNameContains(String name) {
         System.out.println("inside servImpl " + name);
-        return townFinderRepository.findByNameContains(name);
+        return townFinderRepository.findByNameStartsWith(name);
     }
 }

@@ -48,8 +48,4 @@ public class Json {
         return objectMapper.readValue(jsonList, javaType);
     }
 
-
-
-
-
 }

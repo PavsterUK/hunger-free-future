@@ -12,6 +12,7 @@ import java.util.Map;
 @Repository
 public interface TownFinderRepository extends JpaRepository<TownFinder, Long> {
 
-    @Query(value = "SELECT * FROM uk_address ua WHERE LOWER(ua.name) LIKE LOWER( CONCAT(:name, '%')) LIMIT 5", nativeQuery = true)
-    List<Map<String, String>> findByNameContains(@Param("name")String name);
+    @Query(value = "SELECT * FROM town_finder tf WHERE LOWER(tf.name) LIKE LOWER( CONCAT(:name, '%')) LIMIT 5", nativeQuery = true)
+    List<Map<String, String>> findByNameStartsWith(@Param("name")String name);
+
 }

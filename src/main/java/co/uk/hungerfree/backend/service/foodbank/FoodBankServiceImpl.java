@@ -1,9 +1,7 @@
 package co.uk.hungerfree.backend.service.foodbank;
 
-import co.uk.hungerfree.backend.exceptions.FoodBankNotFoundException;
-import co.uk.hungerfree.backend.model.foodbank.entity.FoodBank;
+import co.uk.hungerfree.backend.model.foodbank.FoodBank;
 import co.uk.hungerfree.backend.repository.FoodBankRepository;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,19 +11,11 @@ import java.util.Map;
 @Service
 public class FoodBankServiceImpl implements FoodBankService {
 
-    private FoodBankRepository foodBankRepo;
-
-    public FoodBankServiceImpl() {
-    }
+    private final FoodBankRepository foodBankRepo;
 
     @Autowired
     public FoodBankServiceImpl(FoodBankRepository foodBankRepo) {
         this.foodBankRepo = foodBankRepo;
-    }
-
-    @Override
-    public List<FoodBank> findAll() throws JsonProcessingException {
-        return foodBankRepo.findAll();
     }
 
     public List<FoodBank> saveAll(List<FoodBank> foodBankList) {
@@ -33,14 +23,11 @@ public class FoodBankServiceImpl implements FoodBankService {
     }
 
     @Override
-    public FoodBank findById(String id) {
-        return foodBankRepo.findById(id)
-                .orElseThrow(() -> new FoodBankNotFoundException(id));
-    }
-
-    @Override
-    public List<Map<String, String>> allFbInclNeeds() {
-        return foodBankRepo.allFbInclNeeds();
+    public List<Map<String, String>> withinBounds(Double swLat,
+                                                  Double swLng,
+                                                  Double neLat,
+                                                  Double neLng) {
+        return foodBankRepo.withinBoundsIncludingNeeds(swLat, swLng, neLat, neLng);
     }
 
 }

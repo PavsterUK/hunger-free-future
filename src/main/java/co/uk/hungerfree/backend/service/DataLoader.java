@@ -4,9 +4,9 @@ import co.uk.hungerfree.backend.jsonparsing.API;
 import co.uk.hungerfree.backend.csvparsing.CSV;
 import co.uk.hungerfree.backend.jsonparsing.Json;
 import co.uk.hungerfree.backend.model.TownFinder;
-import co.uk.hungerfree.backend.model.foodbank.entity.FoodBank;
-import co.uk.hungerfree.backend.model.location.entity.Location;
-import co.uk.hungerfree.backend.model.need.entity.Need;
+import co.uk.hungerfree.backend.model.foodbank.FoodBank;
+import co.uk.hungerfree.backend.model.location.Location;
+import co.uk.hungerfree.backend.model.need.Need;
 import co.uk.hungerfree.backend.service.foodbank.FoodBankServiceImpl;
 import co.uk.hungerfree.backend.service.location.LocationServiceImpl;
 import co.uk.hungerfree.backend.service.town.fnder.TownFinderServiceImpl;
@@ -39,13 +39,13 @@ public class DataLoader implements ApplicationRunner {
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-//        fromApiToDatabase();
+        //fromApiToDatabase();
     }
 
     //Load data to database
     public void fromApiToDatabase() throws JsonProcessingException, MalformedURLException {
 
-        List<TownFinder> townFinderList = CSV.parse();
+        //List<TownFinder> townFinderList = CSV.parse();
 
         String foodBanksString = API.fetch(
                 new URL("https://www.givefood.org.uk/api/2/foodbanks/"));
@@ -60,7 +60,7 @@ public class DataLoader implements ApplicationRunner {
         needServiceImpl.saveAll(Json.mapToObj(needsString, Need.class));
         foodBankServiceImpl.saveAll(Json.mapToObj(foodBanksString, FoodBank.class));
         locationServiceImpl.saveAll(Json.mapToObj(locationsString, Location.class));
-        ukAddressServiceImpl.saveAll(townFinderList);
+        //ukAddressServiceImpl.saveAll(townFinderList);
 
     }
 
