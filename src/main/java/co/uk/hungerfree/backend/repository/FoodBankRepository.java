@@ -12,8 +12,7 @@ import java.util.Map;
 @Repository
 public interface FoodBankRepository extends JpaRepository<FoodBank, Long> {
 
-    @Query(value =
-                    "SELECT fb.id, fb.address, fb.email, fb.slug, fb.latitude, fb.longitude, fb.name, fb.phone, need.needs FROM food_bank fb\n" +
+    @Query(value = "SELECT fb.id, fb.address, fb.email, fb.slug, fb.latitude, fb.longitude, fb.name, fb.phone, need.needs FROM food_bank fb\n" +
                     "LEFT OUTER JOIN need\n" +
                     "ON need.slug = fb.slug\n" +
                     "WHERE (CASE WHEN :swLat < :neLat\n" +
@@ -25,9 +24,8 @@ public interface FoodBankRepository extends JpaRepository<FoodBank, Long> {
                     "        THEN longitude BETWEEN :swLng AND :neLng\n" +
                     "        ELSE longitude BETWEEN :neLng AND :swLng\n" +
                     "END)", nativeQuery = true)
-    List<Map<String, String>> withinBounds(@Param("swLat")Double swLat,
-                                           @Param("swLng")Double swLng,
-                                           @Param("neLat")Double neLat,
-                                           @Param("neLng")Double neLng);
-
+    List<Map<String, String>> withinBoundsIncludingNeeds(@Param("swLat")Double swLat,
+                                                         @Param("swLng")Double swLng,
+                                                         @Param("neLat")Double neLat,
+                                                         @Param("neLng")Double neLng);
 }

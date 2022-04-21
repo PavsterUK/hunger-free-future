@@ -11,10 +11,7 @@ import java.util.Map;
 @Service
 public class FoodBankServiceImpl implements FoodBankService {
 
-    private FoodBankRepository foodBankRepo;
-
-    public FoodBankServiceImpl() {
-    }
+    private final FoodBankRepository foodBankRepo;
 
     @Autowired
     public FoodBankServiceImpl(FoodBankRepository foodBankRepo) {
@@ -30,7 +27,7 @@ public class FoodBankServiceImpl implements FoodBankService {
                                                   Double swLng,
                                                   Double neLat,
                                                   Double neLng) {
-        return foodBankRepo.withinBounds(swLat, swLng, neLat, neLng);
+        return foodBankRepo.withinBoundsIncludingNeeds(swLat, swLng, neLat, neLng);
     }
 
 }

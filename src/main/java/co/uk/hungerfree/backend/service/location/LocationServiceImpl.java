@@ -12,7 +12,7 @@ import java.util.Map;
 @Service
 public class LocationServiceImpl implements LocationService {
 
-    private LocationRepository locationRepository;
+    private final LocationRepository locationRepository;
 
     @Autowired
     public LocationServiceImpl(LocationRepository locationRepository) {
@@ -25,9 +25,10 @@ public class LocationServiceImpl implements LocationService {
         locationRepository.saveAll(locationList);
     }
 
-
     @Override
-    public List<Map<String, String>> findAllSalvationArmyWithNeeds() {
-        return locationRepository.findAllSalvationArmyWithNeeds();
+    public List<Map<String, String>> withinBounds(Double swLat, Double swLng, Double neLat, Double neLng) {
+        return locationRepository.withinBounds(swLat, swLng, neLat, neLng);
     }
+
+
 }
