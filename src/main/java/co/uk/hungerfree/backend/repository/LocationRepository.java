@@ -10,7 +10,7 @@ import java.util.Map;
 
 public interface LocationRepository extends JpaRepository<Location, Long> {
 
-    @Query(value = "SELECT l.id, l.address, l.email, parent_slug, l.slug, l.latitude, l.longitude, l.name, l.phone, food_bank.name as part_of FROM location l\n" +
+    @Query(value = "SELECT l.id, l.address, l.email, parent_slug, l.slug, l.latitude, l.longitude, l.name, l.phone, food_bank.name as part_of, food_bank.homepage FROM location l\n" +
             "LEFT OUTER JOIN food_bank\n" +
             "ON food_bank.slug = l.parent_slug\n" +
 
