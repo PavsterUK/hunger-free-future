@@ -12,7 +12,7 @@ import java.util.Map;
 @Repository
 public interface FoodBankRepository extends JpaRepository<FoodBank, Long> {
 
-    @Query(value = "SELECT fb.id, fb.address, fb.email, fb.slug, fb.latitude, fb.longitude, fb.name, fb.phone, need.needs FROM food_bank fb\n" +
+    @Query(value = "SELECT fb.id, fb.address, fb.email, fb.slug, fb.latitude, fb.longitude, fb.name, fb.phone, fb.homepage, need.needs FROM food_bank fb\n" +
                     "LEFT OUTER JOIN need\n" +
                     "ON need.slug = fb.slug\n" +
                     "WHERE (CASE WHEN :swLat < :neLat\n" +

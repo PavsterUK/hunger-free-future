@@ -12,7 +12,7 @@ import java.util.Map;
 @RequestMapping("/v1/api")
 public class FoodBankController {
 
-    private FoodBankServiceImpl fbServImpl;
+    private final FoodBankServiceImpl fbServImpl;
 
     @Autowired
     public FoodBankController(FoodBankServiceImpl fbServImpl) {
