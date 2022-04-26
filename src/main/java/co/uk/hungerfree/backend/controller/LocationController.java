@@ -3,10 +3,7 @@ package co.uk.hungerfree.backend.controller;
 
 import co.uk.hungerfree.backend.service.location.LocationServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -23,13 +20,16 @@ public class LocationController {
         this.locationServiceImpl = locationServiceImpl;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/locations-within")
-    public List<Map<String, String>> withinBounds(@RequestParam Map<String, String> boundaries) {
-        Double swLat = Double.valueOf(boundaries.get("swLat"));
-        Double swLng = Double.valueOf(boundaries.get("swLng"));
-        Double neLat = Double.valueOf(boundaries.get("neLat"));
-        Double neLng = Double.valueOf(boundaries.get("neLng"));
-        return locationServiceImpl.withinBounds(swLat, swLng, neLat, neLng);
+    @GetMapping("/locations-within/{swLat}/{swLng}/{neLat}/{neLng}")
+    public List<Map<String, String>> withinBounds(@PathVariable(value = "swLat") String swLat,
+                                                  @PathVariable(value = "swLng") String swLng,
+                                                  @PathVariable(value = "neLat") String neLat,
+                                                  @PathVariable(value = "neLng") String neLng) {
+        return locationServiceImpl.withinBounds(
+                Double.valueOf(swLat),
+                Double.valueOf(swLng),
+                Double.valueOf(neLat),
+                Double.valueOf(neLng));
     }
 
 }

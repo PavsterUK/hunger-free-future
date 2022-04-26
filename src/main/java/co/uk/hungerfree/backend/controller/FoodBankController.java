@@ -19,12 +19,16 @@ public class FoodBankController {
         this.fbServImpl = fbServImpl;
     }
 
-    @RequestMapping(method = RequestMethod.GET, value = "/foodbanks-within")
-    public List<Map<String, String>> withinBounds(@RequestParam Map<String, String> boundaries) {
-        Double swLat = Double.valueOf(boundaries.get("swLat"));
-        Double swLng = Double.valueOf(boundaries.get("swLng"));
-        Double neLat = Double.valueOf(boundaries.get("neLat"));
-        Double neLng = Double.valueOf(boundaries.get("neLng"));
-        return fbServImpl.withinBounds(swLat, swLng, neLat, neLng);
+    @GetMapping("/foodbanks-within/{swLat}/{swLng}/{neLat}/{neLng}")
+    public List<Map<String, String>> withinBounds(@PathVariable(value = "swLat") String swLat,
+                                                  @PathVariable(value = "swLng") String swLng,
+                                                  @PathVariable(value = "neLat") String neLat,
+                                                  @PathVariable(value = "neLng") String neLng) {
+        return fbServImpl.withinBounds(
+                Double.valueOf(swLat),
+                Double.valueOf(swLng),
+                Double.valueOf(neLat),
+                Double.valueOf(neLng));
     }
 }
+
